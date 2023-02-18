@@ -8,4 +8,3 @@ This Finance Flow API serves as a backend service to provide the data for front-
 ## Go Packages
 - Gorilla Mux
 - Viper
-- Gorm
