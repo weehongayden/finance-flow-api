@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"weehongayden/finance-flow-app/internal/config"
+)
 
 func main() {
-	fmt.Println("Hello, Go")
+	c, err := config.LoadConfig()
+	if err != nil {
+		log.Fatalf("Failed to load config: %v", err)
+	}
+	fmt.Println(c)
 }
