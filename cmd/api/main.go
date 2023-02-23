@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"weehongayden/finance-flow-app/internal/config"
 	"weehongayden/finance-flow-app/internal/database"
@@ -18,14 +17,14 @@ func main() {
 		log.Fatalf("Failed to load config: %v", err)
 	}
 
-	db, err := database.New(c)
+	_, err = database.New(c)
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
-	app := &App{
-		db: db,
-	}
+	// app := &App{
+	// 	db: db,
+	// }
 
-	fmt.Println(app)
+	serve(c)
 }
