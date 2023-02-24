@@ -5,13 +5,20 @@ import (
 	"log"
 	"weehongayden/finance-flow-app/internal/config"
 	"weehongayden/finance-flow-app/internal/database"
+	"weehongayden/finance-flow-app/internal/logging"
 )
 
 type App struct {
-	db *sql.DB
+	log *log.Logger
+	db  *sql.DB
 }
 
 func main() {
+	logger, err := logging.Init()
+	if err != nil {
+		logger.Fatalf("Failed to load log file: %v", err)
+	}
+
 	c, err := config.LoadConfig()
 	if err != nil {
 		log.Fatalf("Failed to load config: %v", err)

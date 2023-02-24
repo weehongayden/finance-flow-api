@@ -1,8 +1,16 @@
 package config
 
-import "github.com/spf13/viper"
+import (
+	"github.com/spf13/viper"
+)
+
+type Server struct {
+	Address string `mapstructure:"address"`
+	Port    uint16 `mapstructure:"port"`
+}
 
 type Config struct {
+	Server   Server `mapstructure:"server"`
 	Database struct {
 		Host string `mapstructure:"host"`
 		Port int16  `mapstructure:"port"`
